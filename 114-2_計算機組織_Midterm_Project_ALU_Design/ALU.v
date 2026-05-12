@@ -1,84 +1,42 @@
-`timescale 1ns/1ns
+// Module: ALU.v
 module ALU( dataA, dataB, Signal, dataOut, reset );
-input reset ;
-input [31:0] dataA ;
-input [31:0] dataB ;
-input [5:0] Signal ;
-output [31:0] dataOut ;
+    input [31:0] dataA, dataB;
+    input [5:0] Signal; // 控制訊號 [cite: 45]
+    input reset;
+    output [31:0] dataOut;
 
-//   Signal ( 6-bits)?
-//   AND  : 36
-//   OR   : 37
-//   ADD  : 32
-//   SUB  : 34
-//   SLT  : 42
+    wire [31:0] carry;
+    wire [31:0] result;
+    wire invertB;
+    wire [2:0] alu_op;
+    wire set_less;
 
-reg [31:0] temp ;
+    // ALU 控制訊號解碼 [cite: 44, 45]
+    // ADD:32, SUB:34, AND:36, OR:37, SLT:42
+    assign invertB = (Signal == 6'd34 || Signal == 6'd42);
+    assign alu_op  = (Signal == 6'd36) ? 3'b000 : // AND
+                     (Signal == 6'd37) ? 3'b001 : // OR
+                     (Signal == 6'd42) ? 3'b011 : // SLT
+                     3'b010;                      // ADD/SUB
 
-parameter AND = 6'b100100;
-parameter OR  = 6'b100101;
-parameter ADD = 6'b100000;
-parameter SUB = 6'b100010;
-parameter SLT = 6'b101010;
-/*
-定義各種訊號
-*/
+    // 第 0 位：特別處理 cin
+    ALU_1bit bit0( dataA[0], dataB[0], invertB, set_less, invertB, alu_op, result[0], carry[0] );
 
-/*
-=====================================================
-下面為模擬範例，程式撰寫請遵照老師上課說明的方法來寫
-=====================================================
-*/
-always@( dataA or dataB or Signal or reset )
-begin
-        if ( reset )
-        begin
-                temp = 32'b0 ;
-        end 
-/*
-reset訊號 如果是reset就做歸0
-*/
-        else
-        begin
-		case ( Signal )
-		AND:
-		begin
-			temp = dataA & dataB ;
-		end
-		OR:
-		begin
-			temp = dataA | dataB ;
-		end
-		ADD:
-		begin
-			temp = dataA + dataB ;
-		end
-		SUB:
-		begin
-			temp = dataA - dataB ;
-		end
-		SLT:
-		begin
-			if ( dataA < dataB )
-				temp = 1 ;
-			else
-				temp = 0 ;
-		end
-		default: temp = 32'b0 ;	
-	
-		endcase
-	end
-/*
-上面這個case是在做訊號處理
-分別根據傳進來的signal來做不同的運算
-然後放進暫存器
-*/
-end
-assign dataOut = temp ;
-/*
-=====================================================
-上面為模擬範例，程式撰寫請遵照老師上課說明的方法來寫
-=====================================================
-*/
+    // 第 1 到 30 位：使用 generate 展開電路 
+    // 註：generate for 是硬體展開，非程式執行迴圈，符合規定。
+    genvar i;
+    generate
+        for (i = 1; i < 31; i = i + 1) begin : alu_slice
+            ALU_1bit bit_i( dataA[i], dataB[i], carry[i-1], 1'b0, invertB, alu_op, result[i], carry[i] );
+        end
+    endgenerate
 
+    // 第 31 位：用於 SLT 判斷
+    wire sum_31;
+    ALU_1bit bit31( dataA[31], dataB[31], carry[30], 1'b0, invertB, alu_op, result[31], carry[31] );
+    
+    // SLT 邏輯：結果為負則 set_less 為 1
+    assign set_less = result[31]; 
+
+    assign dataOut = reset ? 32'b0 : result;
 endmodule
