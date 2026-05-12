@@ -1,10 +1,10 @@
-**** module/scope: MUX
+**** module/scope: Divider
      Flip-Flops   : 0
-     Logic Gates  : 228
-     EQUALITY[6]: 3 units
-     MUX[2]: 96 slices
+     Logic Gates  : 0
+     LOG[13]: 1 unaccounted
+     LOG[14]: 1 unaccounted
 **** TOTALS
      Flip-Flops   : 0
-     Logic Gates  : 228
-     EQUALITY[6]: 3 units
-     MUX[2]: 96 slices
+     Logic Gates  : 0
+     LOG[13]: 1 unaccounted
+     LOG[14]: 1 unaccounted
