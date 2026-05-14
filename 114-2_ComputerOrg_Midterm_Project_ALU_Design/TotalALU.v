@@ -8,7 +8,6 @@ module TotalALU( clk, dataA, dataB, Signal, dataOut, reset );
     wire [31:0] w_alu_out, w_hi_out, w_lo_out, w_shifter_out;
     wire [63:0] w_mult_out;
 
-    // 1. ??? ALU (?? Output ????)
     ALU alu_inst(
         .dataA(dataA), 
         .dataB(dataB), 
@@ -17,7 +16,6 @@ module TotalALU( clk, dataA, dataB, Signal, dataOut, reset );
         .reset(reset)
     );
 
-    // 2. ??? Multiplier (????? reset)
     Multiplier mult_inst(
         .clk(clk), 
         .reset(reset), 
@@ -27,7 +25,6 @@ module TotalALU( clk, dataA, dataB, Signal, dataOut, reset );
         .dataOut(w_mult_out)
     );
 
-    // 3. ??? HiLo
     HiLo hilo_inst(
         .clk(clk), 
         .reset(reset), 
@@ -36,7 +33,6 @@ module TotalALU( clk, dataA, dataB, Signal, dataOut, reset );
         .LoOut(w_lo_out)
     );
 
-    // 4. ??? Shifter
     Shifter shifter_inst(
         .dataA(dataA), 
         .dataB(dataB), 
@@ -44,7 +40,6 @@ module TotalALU( clk, dataA, dataB, Signal, dataOut, reset );
         .dataOut(w_shifter_out)
     );
 
-    // 5. ??? MUX
     MUX mux_inst(
         .ALUOut(w_alu_out), 
         .HiOut(w_hi_out), 

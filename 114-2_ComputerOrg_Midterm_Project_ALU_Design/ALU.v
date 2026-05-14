@@ -12,10 +12,6 @@ module ALU( dataA, dataB, Signal, dataOut, reset );
     wire        invertB;
     wire        set_less;
 
-    // ==========================================
-    // 1. 控制訊號解碼 (Data Flow Modeling)
-    // ADD: 32, SUB: 34, AND: 36, OR: 37, SLT: 42
-    // ==========================================
     assign invertB = (Signal == 6'd34 || Signal == 6'd42); // SUB 或是 SLT 時，B 需取反
 
     assign alu_op = (Signal == 6'd36) ? 3'b000 : // AND
@@ -23,16 +19,10 @@ module ALU( dataA, dataB, Signal, dataOut, reset );
                     (Signal == 6'd42) ? 3'b011 : // SLT
                     3'b010;                      // ADD/SUB 預設
 
-    // 減法與 SLT 時，需完成二補數的 +1 動作
     assign carry[0] = invertB;
 
-    // SLT 邏輯：判斷 A - B 的結果是否為負數 (計算第 31 位元的 Sum 符號)
     assign set_less = dataA[31] ^ (dataB[31] ^ invertB) ^ carry[31];
 
-    // ==========================================
-    // 2. Ripple-Carry 串接 32 個 1-bit ALU
-    // (純手工展開，絕對不踩 for 迴圈地雷)
-    // ==========================================
     ALU_1bit slice0  ( .a(dataA[0]),  .b(dataB[0]),  .cin(carry[0]),  .less(set_less), .invertB(invertB), .op(alu_op), .out(result[0]),  .cout(carry[1])  );
     ALU_1bit slice1  ( .a(dataA[1]),  .b(dataB[1]),  .cin(carry[1]),  .less(1'b0),     .invertB(invertB), .op(alu_op), .out(result[1]),  .cout(carry[2])  );
     ALU_1bit slice2  ( .a(dataA[2]),  .b(dataB[2]),  .cin(carry[2]),  .less(1'b0),     .invertB(invertB), .op(alu_op), .out(result[2]),  .cout(carry[3])  );
@@ -66,9 +56,6 @@ module ALU( dataA, dataB, Signal, dataOut, reset );
     ALU_1bit slice30 ( .a(dataA[30]), .b(dataB[30]), .cin(carry[30]), .less(1'b0),     .invertB(invertB), .op(alu_op), .out(result[30]), .cout(carry[31]) );
     ALU_1bit slice31 ( .a(dataA[31]), .b(dataB[31]), .cin(carry[31]), .less(1'b0),     .invertB(invertB), .op(alu_op), .out(result[31]), .cout(carry[32]) );
 
-    // ==========================================
-    // 3. 處理 Reset
-    // ==========================================
     assign dataOut = reset ? 32'b0 : result;
 
 endmodule

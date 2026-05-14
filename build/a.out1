@@ -1,20 +1,10 @@
-**** module/scope: Multiplier
-     Flip-Flops   : 168
-     Logic Gates  : 539
-     ADDER[6]: 1 units
-     ADDER[64]: 1 units
-     EQUALITY[6]: 2 units
-     MAGNITUDE[6]: 1 units
-     MUX[2]: 170 slices
-     LOG[13]: 1 unaccounted
-     LOG[14]: 1 unaccounted
+**** module/scope: Shifter
+     Flip-Flops   : 0
+     Logic Gates  : 396
+     EQUALITY[6]: 1 units
+     MUX[2]: 192 slices
 **** TOTALS
-     Flip-Flops   : 168
-     Logic Gates  : 539
-     ADDER[6]: 1 units
-     ADDER[64]: 1 units
-     EQUALITY[6]: 2 units
-     MAGNITUDE[6]: 1 units
-     MUX[2]: 170 slices
-     LOG[13]: 1 unaccounted
-     LOG[14]: 1 unaccounted
+     Flip-Flops   : 0
+     Logic Gates  : 396
+     EQUALITY[6]: 1 units
+     MUX[2]: 192 slices
