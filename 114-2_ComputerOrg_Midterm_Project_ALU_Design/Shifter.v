@@ -1,32 +1,198 @@
 `timescale 1ns/1ns
 module Shifter( dataA, dataB, Signal, dataOut );
-    input  [31:0] dataA; // 被位移資料
-    input  [31:0] dataB; // 位移量 (shamt)
+    input  [31:0] dataA;
+    input  [31:0] dataB;
     input  [5:0]  Signal;
     output [31:0] dataOut;
 
     wire [31:0] s0, s1, s2, s3, s4;
 
-    // SRL 控制碼為 02 [cite: 54]
-    // 使用三元運算子 (? :) 在硬體上對應 2-to-1 Mux
-    // 使用位元拼接 ({}) 達成硬體接線的平移
+    // =======================================
+    // Stage 0: shamt = dataB[0], 右移 1 位
+    // 共 32 個 1-bit Mux (Mux 001 ~ 032)
+    // =======================================
+    assign s0[31] = dataB[0] ? 1'b0       : dataA[31];
+    assign s0[30] = dataB[0] ? dataA[31]  : dataA[30];
+    assign s0[29] = dataB[0] ? dataA[30]  : dataA[29];
+    assign s0[28] = dataB[0] ? dataA[29]  : dataA[28];
+    assign s0[27] = dataB[0] ? dataA[28]  : dataA[27];
+    assign s0[26] = dataB[0] ? dataA[27]  : dataA[26];
+    assign s0[25] = dataB[0] ? dataA[26]  : dataA[25];
+    assign s0[24] = dataB[0] ? dataA[25]  : dataA[24];
+    assign s0[23] = dataB[0] ? dataA[24]  : dataA[23];
+    assign s0[22] = dataB[0] ? dataA[23]  : dataA[22];
+    assign s0[21] = dataB[0] ? dataA[22]  : dataA[21];
+    assign s0[20] = dataB[0] ? dataA[21]  : dataA[20];
+    assign s0[19] = dataB[0] ? dataA[20]  : dataA[19];
+    assign s0[18] = dataB[0] ? dataA[19]  : dataA[18];
+    assign s0[17] = dataB[0] ? dataA[18]  : dataA[17];
+    assign s0[16] = dataB[0] ? dataA[17]  : dataA[16];
+    assign s0[15] = dataB[0] ? dataA[16]  : dataA[15];
+    assign s0[14] = dataB[0] ? dataA[15]  : dataA[14];
+    assign s0[13] = dataB[0] ? dataA[14]  : dataA[13];
+    assign s0[12] = dataB[0] ? dataA[13]  : dataA[12];
+    assign s0[11] = dataB[0] ? dataA[12]  : dataA[11];
+    assign s0[10] = dataB[0] ? dataA[11]  : dataA[10];
+    assign s0[9]  = dataB[0] ? dataA[10]  : dataA[9];
+    assign s0[8]  = dataB[0] ? dataA[9]   : dataA[8];
+    assign s0[7]  = dataB[0] ? dataA[8]   : dataA[7];
+    assign s0[6]  = dataB[0] ? dataA[7]   : dataA[6];
+    assign s0[5]  = dataB[0] ? dataA[6]   : dataA[5];
+    assign s0[4]  = dataB[0] ? dataA[5]   : dataA[4];
+    assign s0[3]  = dataB[0] ? dataA[4]   : dataA[3];
+    assign s0[2]  = dataB[0] ? dataA[3]   : dataA[2];
+    assign s0[1]  = dataB[0] ? dataA[2]   : dataA[1];
+    assign s0[0]  = dataB[0] ? dataA[1]   : dataA[0];
 
-    // Stage 0: 檢查位移量 bit 0，位移 2^0 = 1 位
-    assign s0 = dataB[0] ? { 1'b0, dataA[31:1] } : dataA;
+    // =======================================
+    // Stage 1: shamt = dataB[1], 右移 2 位
+    // 共 32 個 1-bit Mux (Mux 033 ~ 064)
+    // =======================================
+    assign s1[31] = dataB[1] ? 1'b0      : s0[31];
+    assign s1[30] = dataB[1] ? 1'b0      : s0[30];
+    assign s1[29] = dataB[1] ? s0[31]    : s0[29];
+    assign s1[28] = dataB[1] ? s0[30]    : s0[28];
+    assign s1[27] = dataB[1] ? s0[29]    : s0[27];
+    assign s1[26] = dataB[1] ? s0[28]    : s0[26];
+    assign s1[25] = dataB[1] ? s0[27]    : s0[25];
+    assign s1[24] = dataB[1] ? s0[26]    : s0[24];
+    assign s1[23] = dataB[1] ? s0[25]    : s0[23];
+    assign s1[22] = dataB[1] ? s0[24]    : s0[22];
+    assign s1[21] = dataB[1] ? s0[23]    : s0[21];
+    assign s1[20] = dataB[1] ? s0[22]    : s0[20];
+    assign s1[19] = dataB[1] ? s0[21]    : s0[19];
+    assign s1[18] = dataB[1] ? s0[20]    : s0[18];
+    assign s1[17] = dataB[1] ? s0[19]    : s0[17];
+    assign s1[16] = dataB[1] ? s0[18]    : s0[16];
+    assign s1[15] = dataB[1] ? s0[17]    : s0[15];
+    assign s1[14] = dataB[1] ? s0[16]    : s0[14];
+    assign s1[13] = dataB[1] ? s0[15]    : s0[13];
+    assign s1[12] = dataB[1] ? s0[14]    : s0[12];
+    assign s1[11] = dataB[1] ? s0[13]    : s0[11];
+    assign s1[10] = dataB[1] ? s0[12]    : s0[10];
+    assign s1[9]  = dataB[1] ? s0[11]    : s0[9];
+    assign s1[8]  = dataB[1] ? s0[10]    : s0[8];
+    assign s1[7]  = dataB[1] ? s0[9]     : s0[7];
+    assign s1[6]  = dataB[1] ? s0[8]     : s0[6];
+    assign s1[5]  = dataB[1] ? s0[7]     : s0[5];
+    assign s1[4]  = dataB[1] ? s0[6]     : s0[4];
+    assign s1[3]  = dataB[1] ? s0[5]     : s0[3];
+    assign s1[2]  = dataB[1] ? s0[4]     : s0[2];
+    assign s1[1]  = dataB[1] ? s0[3]     : s0[1];
+    assign s1[0]  = dataB[1] ? s0[2]     : s0[0];
 
-    // Stage 1: 檢查位移量 bit 1，位移 2^1 = 2 位
-    assign s1 = dataB[1] ? { 2'b0, s0[31:2] } : s0;
+    // =======================================
+    // Stage 2: shamt = dataB[2], 右移 4 位
+    // 共 32 個 1-bit Mux (Mux 065 ~ 096)
+    // =======================================
+    assign s2[31] = dataB[2] ? 1'b0      : s1[31];
+    assign s2[30] = dataB[2] ? 1'b0      : s1[30];
+    assign s2[29] = dataB[2] ? 1'b0      : s1[29];
+    assign s2[28] = dataB[2] ? 1'b0      : s1[28];
+    assign s2[27] = dataB[2] ? s1[31]    : s1[27];
+    assign s2[26] = dataB[2] ? s1[30]    : s1[26];
+    assign s2[25] = dataB[2] ? s1[29]    : s1[25];
+    assign s2[24] = dataB[2] ? s1[28]    : s1[24];
+    assign s2[23] = dataB[2] ? s1[27]    : s1[23];
+    assign s2[22] = dataB[2] ? s1[26]    : s1[22];
+    assign s2[21] = dataB[2] ? s1[25]    : s1[21];
+    assign s2[20] = dataB[2] ? s1[24]    : s1[20];
+    assign s2[19] = dataB[2] ? s1[23]    : s1[19];
+    assign s2[18] = dataB[2] ? s1[22]    : s1[18];
+    assign s2[17] = dataB[2] ? s1[21]    : s1[17];
+    assign s2[16] = dataB[2] ? s1[20]    : s1[16];
+    assign s2[15] = dataB[2] ? s1[19]    : s1[15];
+    assign s2[14] = dataB[2] ? s1[18]    : s1[14];
+    assign s2[13] = dataB[2] ? s1[17]    : s1[13];
+    assign s2[12] = dataB[2] ? s1[16]    : s1[12];
+    assign s2[11] = dataB[2] ? s1[15]    : s1[11];
+    assign s2[10] = dataB[2] ? s1[14]    : s1[10];
+    assign s2[9]  = dataB[2] ? s1[13]    : s1[9];
+    assign s2[8]  = dataB[2] ? s1[12]    : s1[8];
+    assign s2[7]  = dataB[2] ? s1[11]    : s1[7];
+    assign s2[6]  = dataB[2] ? s1[10]    : s1[6];
+    assign s2[5]  = dataB[2] ? s1[9]     : s1[5];
+    assign s2[4]  = dataB[2] ? s1[8]     : s1[4];
+    assign s2[3]  = dataB[2] ? s1[7]     : s1[3];
+    assign s2[2]  = dataB[2] ? s1[6]     : s1[2];
+    assign s2[1]  = dataB[2] ? s1[5]     : s1[1];
+    assign s2[0]  = dataB[2] ? s1[4]     : s1[0];
 
-    // Stage 2: 檢查位移量 bit 2，位移 2^2 = 4 位
-    assign s2 = dataB[2] ? { 4'b0, s1[31:4] } : s1;
+    // =======================================
+    // Stage 3: shamt = dataB[3], 右移 8 位
+    // 共 32 個 1-bit Mux (Mux 097 ~ 128)
+    // =======================================
+    assign s3[31] = dataB[3] ? 1'b0      : s2[31];
+    assign s3[30] = dataB[3] ? 1'b0      : s2[30];
+    assign s3[29] = dataB[3] ? 1'b0      : s2[29];
+    assign s3[28] = dataB[3] ? 1'b0      : s2[28];
+    assign s3[27] = dataB[3] ? 1'b0      : s2[27];
+    assign s3[26] = dataB[3] ? 1'b0      : s2[26];
+    assign s3[25] = dataB[3] ? 1'b0      : s2[25];
+    assign s3[24] = dataB[3] ? 1'b0      : s2[24];
+    assign s3[23] = dataB[3] ? s2[31]    : s2[23];
+    assign s3[22] = dataB[3] ? s2[30]    : s2[22];
+    assign s3[21] = dataB[3] ? s2[29]    : s2[21];
+    assign s3[20] = dataB[3] ? s2[28]    : s2[20];
+    assign s3[19] = dataB[3] ? s2[27]    : s2[19];
+    assign s3[18] = dataB[3] ? s2[26]    : s2[18];
+    assign s3[17] = dataB[3] ? s2[25]    : s2[17];
+    assign s3[16] = dataB[3] ? s2[24]    : s2[16];
+    assign s3[15] = dataB[3] ? s2[23]    : s2[15];
+    assign s3[14] = dataB[3] ? s2[22]    : s2[14];
+    assign s3[13] = dataB[3] ? s2[21]    : s2[13];
+    assign s3[12] = dataB[3] ? s2[20]    : s2[12];
+    assign s3[11] = dataB[3] ? s2[19]    : s2[11];
+    assign s3[10] = dataB[3] ? s2[18]    : s2[10];
+    assign s3[9]  = dataB[3] ? s2[17]    : s2[9];
+    assign s3[8]  = dataB[3] ? s2[16]    : s2[8];
+    assign s3[7]  = dataB[3] ? s2[15]    : s2[7];
+    assign s3[6]  = dataB[3] ? s2[14]    : s2[6];
+    assign s3[5]  = dataB[3] ? s2[13]    : s2[5];
+    assign s3[4]  = dataB[3] ? s2[12]    : s2[4];
+    assign s3[3]  = dataB[3] ? s2[11]    : s2[3];
+    assign s3[2]  = dataB[3] ? s2[10]    : s2[2];
+    assign s3[1]  = dataB[3] ? s2[9]     : s2[1];
+    assign s3[0]  = dataB[3] ? s2[8]     : s2[0];
 
-    // Stage 3: 檢查位移量 bit 3，位移 2^3 = 8 位
-    assign s3 = dataB[3] ? { 8'b0, s2[31:8] } : s2;
+    // =======================================
+    // Stage 4: shamt = dataB[4], 右移 16 位
+    // 共 32 個 1-bit Mux (Mux 129 ~ 160)
+    // =======================================
+    assign s4[31] = dataB[4] ? 1'b0      : s3[31];
+    assign s4[30] = dataB[4] ? 1'b0      : s3[30];
+    assign s4[29] = dataB[4] ? 1'b0      : s3[29];
+    assign s4[28] = dataB[4] ? 1'b0      : s3[28];
+    assign s4[27] = dataB[4] ? 1'b0      : s3[27];
+    assign s4[26] = dataB[4] ? 1'b0      : s3[26];
+    assign s4[25] = dataB[4] ? 1'b0      : s3[25];
+    assign s4[24] = dataB[4] ? 1'b0      : s3[24];
+    assign s4[23] = dataB[4] ? 1'b0      : s3[23];
+    assign s4[22] = dataB[4] ? 1'b0      : s3[22];
+    assign s4[21] = dataB[4] ? 1'b0      : s3[21];
+    assign s4[20] = dataB[4] ? 1'b0      : s3[20];
+    assign s4[19] = dataB[4] ? 1'b0      : s3[19];
+    assign s4[18] = dataB[4] ? 1'b0      : s3[18];
+    assign s4[17] = dataB[4] ? 1'b0      : s3[17];
+    assign s4[16] = dataB[4] ? 1'b0      : s3[16];
+    assign s4[15] = dataB[4] ? s3[31]    : s3[15];
+    assign s4[14] = dataB[4] ? s3[30]    : s3[14];
+    assign s4[13] = dataB[4] ? s3[29]    : s3[13];
+    assign s4[12] = dataB[4] ? s3[28]    : s3[12];
+    assign s4[11] = dataB[4] ? s3[27]    : s3[11];
+    assign s4[10] = dataB[4] ? s3[26]    : s3[10];
+    assign s4[9]  = dataB[4] ? s3[25]    : s3[9];
+    assign s4[8]  = dataB[4] ? s3[24]    : s3[8];
+    assign s4[7]  = dataB[4] ? s3[23]    : s3[7];
+    assign s4[6]  = dataB[4] ? s3[22]    : s3[6];
+    assign s4[5]  = dataB[4] ? s3[21]    : s3[5];
+    assign s4[4]  = dataB[4] ? s3[20]    : s3[4];
+    assign s4[3]  = dataB[4] ? s3[19]    : s3[3];
+    assign s4[2]  = dataB[4] ? s3[18]    : s3[2];
+    assign s4[1]  = dataB[4] ? s3[17]    : s3[1];
+    assign s4[0]  = dataB[4] ? s3[16]    : s3[0];
 
-    // Stage 4: 檢查位移量 bit 4，位移 2^4 = 16 位
-    assign s4 = dataB[4] ? { 16'b0, s3[31:16] } : s3;
-
-    // 最終輸出：僅在 Signal 為 02 時輸出位移結果
+    // 最終輸出：僅在 Signal == 02 (SRL) 時輸出位移結果
     assign dataOut = (Signal == 6'd2) ? s4 : 32'd0;
 
 endmodule

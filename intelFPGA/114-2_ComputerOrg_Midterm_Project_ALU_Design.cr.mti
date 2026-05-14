@@ -19,6 +19,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	ALU_1bit
 
+} {} {}} C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/ALU.v {1 {vlog -work work -stats=none C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/ALU.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
 } {} {}} C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/TotalALU.v {1 {vlog -work work -stats=none C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/TotalALU.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module TotalALU
@@ -26,19 +33,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	TotalALU
 
-} {} {}} C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/MUX.v {1 {vlog -work work -stats=none C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/MUX.v
+} {} {}} C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/Multiplier.v {1 {vlog -work work -stats=none C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/Multiplier.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module MUX
+-- Compiling module Multiplier
 
 Top level modules:
-	MUX
-
-} {} {}} C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/ALU.v {1 {vlog -work work -stats=none C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/ALU.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module ALU
-
-Top level modules:
-	ALU
+	Multiplier
 
 } {} {}} C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/tb_ALU.v {1 {vlog -work work -stats=none C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/tb_ALU.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016

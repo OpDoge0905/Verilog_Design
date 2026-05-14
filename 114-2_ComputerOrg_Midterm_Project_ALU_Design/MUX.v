@@ -11,8 +11,9 @@ module MUX( ALUOut, HiOut, LoOut, ShifterOut, Signal, dataOut );
     // AND, OR, ADD, SUB, SLT -> ALUOut
 
     assign dataOut = (Signal == 6'd2)  ? ShifterOut :
-                     (Signal == 6'd16) ? HiOut :
-                     (Signal == 6'd18) ? LoOut :
-                     ALUOut;
+                    (Signal == 6'd16) ? HiOut      :
+                    (Signal == 6'd18) ? LoOut      :
+                    (Signal == 6'd25) ? LoOut      :  // ← 這行有沒有？
+                    ALUOut;
 
 endmodule

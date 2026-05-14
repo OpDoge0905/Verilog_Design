@@ -1,9 +1,10 @@
 `timescale 1ns/1ns
 module Multiplier( clk, reset, dataA, dataB, Signal, dataOut );
-    input clk, reset;
-    input [31:0] dataA; 
-    input [31:0] dataB; 
-    input [5:0]  Signal;
+    input         clk;
+    input         reset;
+    input  [31:0] dataA;
+    input  [31:0] dataB;
+    input  [5:0]  Signal;
     output [63:0] dataOut;
 
     parameter MULTU = 6'd25;
@@ -13,6 +14,7 @@ module Multiplier( clk, reset, dataA, dataB, Signal, dataOut );
     reg [63:0] product;
     reg [5:0]  counter;
     reg        busy;
+    reg        done;
 
     always @( posedge clk or posedge reset ) begin
         if ( reset ) begin
@@ -21,31 +23,33 @@ module Multiplier( clk, reset, dataA, dataB, Signal, dataOut );
             product        <= 64'b0;
             counter        <= 6'd0;
             busy           <= 1'b0;
+            done           <= 1'b0;
         end
         else begin
-            // ?? ?? counter == 0 ????????? 350ns ????????
-            if ( Signal == MULTU && !busy && counter == 6'd0 ) begin
-                multiplicand   <= {32'b0, dataA}; 
-                multiplier_reg <= dataB;         
+            if ( Signal != MULTU ) begin
+                done <= 1'b0;
+            end
+
+            if ( Signal == MULTU && busy == 1'b0 && done == 1'b0 ) begin
+                multiplicand   <= { 32'b0, dataA };
+                multiplier_reg <= dataB;
                 product        <= 64'b0;
                 counter        <= 6'd0;
                 busy           <= 1'b1;
             end
-            else if ( busy ) begin
+            else if ( busy == 1'b1 ) begin
                 if ( counter < 6'd32 ) begin
-                    if ( multiplier_reg[0] ) begin
+                    if ( multiplier_reg[0] == 1'b1 ) begin
                         product <= product + multiplicand;
                     end
-                    multiplicand <= multiplicand << 1;
+                    multiplicand   <= multiplicand   << 1;
                     multiplier_reg <= multiplier_reg >> 1;
-                    counter <= counter + 6'd1;
+                    counter        <= counter + 6'd1;
                 end
                 else begin
-                    busy <= 1'b0; // ??????? counter ?? 32
+                    busy <= 1'b0;
+                    done <= 1'b1;
                 end
-            end
-            else if ( Signal != MULTU ) begin
-                counter <= 6'd0; // ?? ???????????????????????
             end
         end
     end

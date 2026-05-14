@@ -42,7 +42,7 @@ module tb_ALU();
             
             if (scan_count == 3) begin
                 if (Signal == 6'd25) begin
-                    #350; // MULTU ??????
+                    #400; // MULTU ??????
                 end else begin
                     #10;
                 end
