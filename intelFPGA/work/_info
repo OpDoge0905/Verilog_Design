@@ -9,13 +9,13 @@ z2
 cModel Technology
 dC:/intelFPGA/17.1
 vALU
-Z0 !s110 1778729142
+Z0 !s110 1778730493
 !i10b 1
-!s100 H_Q<kCGK_D<n^MLN>1mC_1
-IJOZS;iG_AYe3FAfo;T9EA3
+!s100 WcSZO7<;>?_CZ]kXRkjA03
+IZT`2ScKS=nnV4`eeCPKNN3
 Z1 VDg1SIo80bB@j0V0VzS_@n1
 Z2 dC:/Users/duckyy/Documents/Codehehe/Verilog/intelFPGA
-w1778582430
+w1778730260
 8C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/ALU.v
 FC:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/ALU.v
 L0 2
@@ -23,7 +23,7 @@ Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z4 !s108 1778729142.000000
+Z4 !s108 1778730493.000000
 !s107 C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/ALU.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/ALU.v|
 !i113 1
@@ -37,7 +37,7 @@ R0
 IU74::Bh2nUIiC?3oHAnke1
 R1
 R2
-w1778579240
+w1778730261
 8C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/ALU_1bit.v
 FC:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/ALU_1bit.v
 L0 1
@@ -59,7 +59,7 @@ R0
 I5G99jbWGLKlcA4EMl9<A32
 R1
 R2
-w1778576301
+w1778730264
 8C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/FullAdder.v
 FC:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/FullAdder.v
 L0 1
@@ -77,11 +77,11 @@ n@full@adder
 vHiLo
 R0
 !i10b 1
-!s100 Ybb_2Z4JhKBFP[ddeK^>J0
-IzHb8NIULg^1OSkKgbCn>52
+!s100 n@`Y[VkaFd4bK=jNkd@d@2
+I5Jl209LXhG@@2V6CZFcCU3
 R1
 R2
-w1778584551
+w1778730266
 8C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/HiLo.v
 FC:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/HiLo.v
 L0 2
@@ -97,7 +97,7 @@ R5
 R6
 n@hi@lo
 vMultiplier
-Z7 !s110 1778729143
+Z7 !s110 1778730494
 !i10b 1
 !s100 e[<oP3QmW]kz=SKUTg]^80
 IH5:hll5:@XB6R;P=a<aZ:2
@@ -111,7 +111,7 @@ R3
 r1
 !s85 0
 31
-R4
+Z8 !s108 1778730494.000000
 !s107 C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/Multiplier.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/Multiplier.v|
 !i113 1
@@ -121,11 +121,11 @@ n@multiplier
 vMUX
 R7
 !i10b 1
-!s100 bh[RNc3OP`V6eO^fk2WZU2
-IzCg;BXZhDE2VF5HaGUa<63
+!s100 fHjRO5gZOkQSah1Y0E=L^3
+IZC1NFnWhEJHzb`YYUkO9e0
 R1
 R2
-w1778729075
+w1778730268
 8C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/MUX.v
 FC:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/MUX.v
 L0 2
@@ -133,7 +133,7 @@ R3
 r1
 !s85 0
 31
-Z8 !s108 1778729143.000000
+R8
 !s107 C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/MUX.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/MUX.v|
 !i113 1
@@ -143,11 +143,11 @@ n@m@u@x
 vShifter
 R7
 !i10b 1
-!s100 _Z7>G7=D<ZD7ODQ_98WRV3
-IHd2R^n?z1HNl]j1j`Zmal3
+!s100 K=Pe_5;c10]b?_=Z=b`7`3
+IJID@?hBRakcgDOi_E_O[@3
 R1
 R2
-w1778727243
+w1778730270
 8C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/Shifter.v
 FC:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/Shifter.v
 L0 2
@@ -169,7 +169,7 @@ R7
 I8WKF[VOOkBiaez3Hce?e^2
 R1
 R2
-w1778728688
+w1778730267
 8C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/tb_ALU.v
 FC:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/tb_ALU.v
 L0 2
@@ -187,11 +187,11 @@ ntb_@a@l@u
 vTotalALU
 R7
 !i10b 1
-!s100 63z<3^QNOz>W@fc98K`en3
-I`eb>[ockVShDRQ]SF?<A<3
+!s100 [NCLzDmzhe02_ckh75i9[1
+In_kVJ1@ol1:9=Mc6^I_NL2
 R1
 R2
-w1778587303
+w1778730263
 8C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/TotalALU.v
 FC:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/TotalALU.v
 L0 2
