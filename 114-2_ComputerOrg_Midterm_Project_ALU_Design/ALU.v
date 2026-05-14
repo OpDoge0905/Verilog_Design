@@ -12,12 +12,12 @@ module ALU( dataA, dataB, Signal, dataOut, reset );
     wire        invertB;
     wire        set_less;
 
-    assign invertB = (Signal == 6'd34 || Signal == 6'd42); // SUB 或是 SLT 時，B 需取反
+    assign invertB = (Signal == 6'd34 || Signal == 6'd42); 
 
-    assign alu_op = (Signal == 6'd36) ? 3'b000 : // AND
-                    (Signal == 6'd37) ? 3'b001 : // OR
-                    (Signal == 6'd42) ? 3'b011 : // SLT
-                    3'b010;                      // ADD/SUB 預設
+    assign alu_op = (Signal == 6'd36) ? 3'b000 : 
+                    (Signal == 6'd37) ? 3'b001 : 
+                    (Signal == 6'd42) ? 3'b011 : 
+                    3'b010; 
 
     assign carry[0] = invertB;
 
