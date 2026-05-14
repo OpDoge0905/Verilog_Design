@@ -1,18 +1,4 @@
-C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/HiLo.v {1 {vlog -work work -stats=none C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/HiLo.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module HiLo
-
-Top level modules:
-	HiLo
-
-} {} {}} C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/Shifter.v {1 {vlog -work work -stats=none C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/Shifter.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module Shifter
-
-Top level modules:
-	Shifter
-
-} {} {}} C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/ALU_1bit.v {1 {vlog -work work -stats=none C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/ALU_1bit.v
+C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/ALU_1bit.v {1 {vlog -work work -stats=none C:/Users/duckyy/Documents/Codehehe/Verilog/114-2_ComputerOrg_Midterm_Project_ALU_Design/ALU_1bit.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module ALU_1bit
 

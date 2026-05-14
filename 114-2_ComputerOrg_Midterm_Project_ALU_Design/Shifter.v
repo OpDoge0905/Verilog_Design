@@ -7,10 +7,6 @@ module Shifter( dataA, dataB, Signal, dataOut );
 
     wire [31:0] s0, s1, s2, s3, s4;
 
-    // =======================================
-    // Stage 0: shamt = dataB[0], 右移 1 位
-    // 共 32 個 1-bit Mux (Mux 001 ~ 032)
-    // =======================================
     assign s0[31] = dataB[0] ? 1'b0       : dataA[31];
     assign s0[30] = dataB[0] ? dataA[31]  : dataA[30];
     assign s0[29] = dataB[0] ? dataA[30]  : dataA[29];
@@ -44,10 +40,6 @@ module Shifter( dataA, dataB, Signal, dataOut );
     assign s0[1]  = dataB[0] ? dataA[2]   : dataA[1];
     assign s0[0]  = dataB[0] ? dataA[1]   : dataA[0];
 
-    // =======================================
-    // Stage 1: shamt = dataB[1], 右移 2 位
-    // 共 32 個 1-bit Mux (Mux 033 ~ 064)
-    // =======================================
     assign s1[31] = dataB[1] ? 1'b0      : s0[31];
     assign s1[30] = dataB[1] ? 1'b0      : s0[30];
     assign s1[29] = dataB[1] ? s0[31]    : s0[29];
@@ -81,10 +73,6 @@ module Shifter( dataA, dataB, Signal, dataOut );
     assign s1[1]  = dataB[1] ? s0[3]     : s0[1];
     assign s1[0]  = dataB[1] ? s0[2]     : s0[0];
 
-    // =======================================
-    // Stage 2: shamt = dataB[2], 右移 4 位
-    // 共 32 個 1-bit Mux (Mux 065 ~ 096)
-    // =======================================
     assign s2[31] = dataB[2] ? 1'b0      : s1[31];
     assign s2[30] = dataB[2] ? 1'b0      : s1[30];
     assign s2[29] = dataB[2] ? 1'b0      : s1[29];
@@ -118,10 +106,6 @@ module Shifter( dataA, dataB, Signal, dataOut );
     assign s2[1]  = dataB[2] ? s1[5]     : s1[1];
     assign s2[0]  = dataB[2] ? s1[4]     : s1[0];
 
-    // =======================================
-    // Stage 3: shamt = dataB[3], 右移 8 位
-    // 共 32 個 1-bit Mux (Mux 097 ~ 128)
-    // =======================================
     assign s3[31] = dataB[3] ? 1'b0      : s2[31];
     assign s3[30] = dataB[3] ? 1'b0      : s2[30];
     assign s3[29] = dataB[3] ? 1'b0      : s2[29];
@@ -155,10 +139,6 @@ module Shifter( dataA, dataB, Signal, dataOut );
     assign s3[1]  = dataB[3] ? s2[9]     : s2[1];
     assign s3[0]  = dataB[3] ? s2[8]     : s2[0];
 
-    // =======================================
-    // Stage 4: shamt = dataB[4], 右移 16 位
-    // 共 32 個 1-bit Mux (Mux 129 ~ 160)
-    // =======================================
     assign s4[31] = dataB[4] ? 1'b0      : s3[31];
     assign s4[30] = dataB[4] ? 1'b0      : s3[30];
     assign s4[29] = dataB[4] ? 1'b0      : s3[29];
@@ -192,7 +172,6 @@ module Shifter( dataA, dataB, Signal, dataOut );
     assign s4[1]  = dataB[4] ? s3[17]    : s3[1];
     assign s4[0]  = dataB[4] ? s3[16]    : s3[0];
 
-    // 最終輸出：僅在 Signal == 02 (SRL) 時輸出位移結果
     assign dataOut = (Signal == 6'd2) ? s4 : 32'd0;
 
 endmodule
