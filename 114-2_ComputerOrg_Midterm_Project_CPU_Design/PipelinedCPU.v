@@ -3,7 +3,7 @@ module PipelinedCPU(clk, reset);
     input clk;
     input reset;
 
-    wire [31:0] pc_out, next_pc, pc_plus_4, inst;
+    wire [31:0] pc_out, pc_next, pc_plus_4, inst;
     
     wire [31:0] if_id_pc_plus_4, if_id_inst;
     wire [4:0] rs, rt, rd;
@@ -43,7 +43,11 @@ module PipelinedCPU(clk, reset);
     wire [31:0] wb_data;
 
     assign jump_target = {if_id_pc_plus_4[31:28], if_id_inst[25:0], 2'b00};
-    assign jr_target = read_data1;
+    
+    assign jr_target = (ex_mem_wb[1] && (ex_mem_write_reg != 5'd0) && (ex_mem_write_reg == rs)) ? ex_mem_alu_result :
+                       (mem_wb_wb[1] && (mem_wb_write_reg != 5'd0) && (mem_wb_write_reg == rs)) ? wb_data :
+                       read_data1;
+
     assign pc_next = PCSrc ? ex_mem_branch_target :
                      Jump ? jump_target :
                      Jr ? jr_target :
@@ -78,9 +82,13 @@ module PipelinedCPU(clk, reset);
 
     SignExtend sign_ext_inst(.in(if_id_inst[15:0]), .out(sign_ext));
 
+    assign write_reg = id_ex_ex[0] ? id_ex_rd : id_ex_rt;
+
     HazardDetectionUnit hazard_inst(
         .ID_EX_MemRead(id_ex_m[1]), .ID_EX_rt(id_ex_rt), .IF_ID_rs(rs), .IF_ID_rt(rt),
         .PCSrc(PCSrc), .jump_id(Jump), .jr_id(Jr), .mult_stall(mult_stall),
+        .ID_EX_RegWrite(id_ex_wb[1]), .id_ex_write_reg(write_reg),
+        .EX_MEM_MemRead(ex_mem_m[1]), .ex_mem_write_reg(ex_mem_write_reg),
         .PCWrite(PCWrite), .IF_ID_Write(IF_ID_Write), .IF_ID_Flush(IF_ID_Flush),
         .ID_EX_Flush(ID_EX_Flush), .EX_MEM_Flush(EX_MEM_Flush), .stall_id_ex(stall_id_ex)
     );
@@ -121,7 +129,6 @@ module PipelinedCPU(clk, reset);
     MultStall mult_stall_inst(.clk(clk), .reset(reset), .is_multu(is_multu), .stall(mult_stall));
 
     assign branch_target = id_ex_pc_plus_4 + (id_ex_sign_ext << 2);
-    assign write_reg = id_ex_ex[0] ? id_ex_rd : id_ex_rt;
 
     EX_MEM_Register ex_mem_inst_reg(
         .clk(clk), .reset(reset), .flush(EX_MEM_Flush),

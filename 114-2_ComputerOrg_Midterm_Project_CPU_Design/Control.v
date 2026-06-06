@@ -34,7 +34,7 @@ module Control(opcode, funct, RegDst, ALUSrc, MemToReg, RegWrite, MemRead, MemWr
     assign RegDst   = R_type;
     assign ALUSrc   = lw | sw | slti;
     assign MemToReg = lw;
-    assign RegWrite = (R_type & ~Jr & ~Multu & ~(R_type & funct == 6'd0)) | lw | slti;
+    assign RegWrite = (R_type & ~Jr & ~Multu & ~(funct == 6'd0)) | lw | slti | Mfhi | Mflo;
     assign MemRead  = lw;
     assign MemWrite = sw;
     assign Branch   = beq;
