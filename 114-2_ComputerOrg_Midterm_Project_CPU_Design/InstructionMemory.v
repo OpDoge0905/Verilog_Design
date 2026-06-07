@@ -5,5 +5,5 @@ module InstructionMemory(addr, inst);
 
     reg [7:0] mem [0:1023];
 
-    assign inst = {mem[addr+3], mem[addr+2], mem[addr+1], mem[addr]};
+    assign inst = {mem[addr], mem[addr+1], mem[addr+2], mem[addr+3]};
 endmodule

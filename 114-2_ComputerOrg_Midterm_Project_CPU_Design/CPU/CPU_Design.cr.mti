@@ -68,13 +68,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	PC_Adder
 
-} {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/InstructionMemory.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/InstructionMemory.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module InstructionMemory
-
-Top level modules:
-	InstructionMemory
-
 } {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PC.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PC.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module PC
