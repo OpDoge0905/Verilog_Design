@@ -1,10 +1,10 @@
-**** module/scope: MUX
+**** module/scope: Shifter
      Flip-Flops   : 0
-     Logic Gates  : 304
-     EQUALITY[6]: 4 units
-     MUX[2]: 128 slices
+     Logic Gates  : 396
+     EQUALITY[6]: 1 units
+     MUX[2]: 192 slices
 **** TOTALS
      Flip-Flops   : 0
-     Logic Gates  : 304
-     EQUALITY[6]: 4 units
-     MUX[2]: 128 slices
+     Logic Gates  : 396
+     EQUALITY[6]: 1 units
+     MUX[2]: 192 slices
