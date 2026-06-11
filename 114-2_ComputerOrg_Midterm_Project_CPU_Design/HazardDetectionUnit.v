@@ -45,7 +45,7 @@ module HazardDetectionUnit(
         (EX_MEM_MemRead & (ex_mem_write_reg != 5'd0) & (ex_mem_write_reg == IF_ID_rs))
     );
 
-    assign PCWrite = PCSrc | ~(lw_stall | mult_stall | jr_stall);
+    assign PCWrite = ~(lw_stall | mult_stall | jr_stall);
     assign IF_ID_Write = ~(lw_stall | mult_stall | jr_stall);
 
     assign IF_ID_Flush = PCSrc | jump_id | (jr_id & ~jr_stall);

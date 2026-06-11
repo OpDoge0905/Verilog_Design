@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/intelFPGA/17.1
 vALU
-Z0 !s110 1781196040
+Z0 !s110 1781200885
 !i10b 1
 !s100 WcSZO7<;>?_CZ]kXRkjA03
 In0Oe?=J0`Fm[Hk12DHK=h2
@@ -23,7 +23,7 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1781196040.000000
+Z5 !s108 1781200885.000000
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ALU.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ALU.v|
 !i113 1
@@ -119,7 +119,7 @@ R6
 R7
 n@data@memory
 vEX_MEM_Register
-Z9 !s110 1781196041
+Z9 !s110 1781200886
 !i10b 1
 !s100 o;`KbHzT1SEdmPV@Y[CaW3
 IBc4b<fXHzYB5W<k4z^E2T2
@@ -155,7 +155,7 @@ R4
 r1
 !s85 0
 31
-Z10 !s108 1781196041.000000
+Z10 !s108 1781200886.000000
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ForwardingUnit.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ForwardingUnit.v|
 !i113 1
@@ -187,11 +187,11 @@ n@full@adder
 vHazardDetectionUnit
 R9
 !i10b 1
-!s100 ?G63b6@MMzk`GS48Lmd:F0
-I4BmSbi4[[H[U3XbRfW;C50
+!s100 jc^eLj5Ub[_P1cCEQ30511
+INHjETS7mh=h0b?GRH@C@e3
 R1
 R2
-w1781195680
+w1781199204
 8C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/HazardDetectionUnit.v
 FC:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/HazardDetectionUnit.v
 L0 2
@@ -209,11 +209,11 @@ n@hazard@detection@unit
 vHiLo
 R9
 !i10b 1
-!s100 9HkVGQEm6gX^eJ2[b>f1J3
-IcUAmE5928S5<m3FeeYF5`0
+!s100 7e?f=Xoz68Nh]Io[`a1hk2
+I8L3GXd9iz6^3nLbYgG_=>1
 R1
 R2
-R8
+w1781198594
 8C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/HiLo.v
 FC:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/HiLo.v
 L0 2
@@ -317,7 +317,7 @@ R6
 R7
 n@m@e@m_@w@b_@register
 vMultiplier
-Z11 !s110 1781196042
+R9
 !i10b 1
 !s100 ?0_ccGDe;2MHY1kGGC?hS2
 IYh>;Q1mz4hfLDlFC]i_b72
@@ -339,7 +339,7 @@ R6
 R7
 n@multiplier
 vMultStall
-R11
+Z11 !s110 1781200887
 !i10b 1
 !s100 Nci^aO`inWz7niVzjUa`^1
 IH`HlTATkBnBJdl@3=:eiP3
@@ -353,7 +353,7 @@ R4
 r1
 !s85 0
 31
-Z12 !s108 1781196042.000000
+Z12 !s108 1781200887.000000
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/MultStall.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/MultStall.v|
 !i113 1
@@ -363,11 +363,11 @@ n@mult@stall
 vMUX
 R11
 !i10b 1
-!s100 fHjRO5gZOkQSah1Y0E=L^3
-IUVgT`@eW:3X;:?hfYICXG3
+!s100 c?7k60Y0P5mi7^aTi9?2o2
+Iz2cIzUaE?e]7OBoRL2PCE1
 R1
 R2
-R3
+w1781200617
 8C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/MUX.v
 FC:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/MUX.v
 L0 2
@@ -429,11 +429,11 @@ n@p@c_@adder
 vPipelinedCPU
 R11
 !i10b 1
-!s100 9@=W6hQ2e]3o2c;gfX;=X2
-ImjAoA0S7^oOImeRfNCIi@1
+!s100 H8U7GS1XanBLC5HE7[<P_0
+Ize?FQz<8Fa9P:FQci;e573
 R1
 R2
-R8
+w1781200866
 8C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PipelinedCPU.v
 FC:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PipelinedCPU.v
 L0 2
@@ -515,7 +515,7 @@ R6
 R7
 n@sign@extend
 vTestbench
-Z13 !s110 1781196043
+Z13 !s110 1781200888
 !i10b 1
 !s100 YLKHlLOZBPa=6^O>U>cbH1
 I`D<zEj1XCAbO3oP6>SGWe2
@@ -539,11 +539,11 @@ n@testbench
 vTotalALU
 R13
 !i10b 1
-!s100 >F00CYT142H5HYkNn;EZO2
-I;Y4?FS6b[6f]zmAhaVK>23
+!s100 iLiE5o?cQ;@df0Qf8@SQI3
+I`bR314Y[PjdU<lBLSbN;l2
 R1
 R2
-R8
+w1781200624
 8C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/TotalALU.v
 FC:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/TotalALU.v
 L0 2
@@ -551,7 +551,7 @@ R4
 r1
 !s85 0
 31
-!s108 1781196043.000000
+!s108 1781200888.000000
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/TotalALU.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/TotalALU.v|
 !i113 1

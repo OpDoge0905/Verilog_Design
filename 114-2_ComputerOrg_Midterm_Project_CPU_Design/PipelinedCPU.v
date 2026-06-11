@@ -144,13 +144,24 @@ module PipelinedCPU(clk, reset);
     assign alu_dataA = (ex_signal == 6'd2) ? {27'b0, id_ex_sign_ext[10:6]} : fwd_data1;
     assign alu_dataB = id_ex_ex[1] ? id_ex_sign_ext : fwd_data2;
 
+    wire [31:0] w_hi_out, w_lo_out, raw_alu_out;
+
     TotalALU total_alu_inst(
-        .clk(clk), .reset(reset), .dataA(alu_dataA), .dataB(alu_dataB),
-        .Signal(ex_signal), .dataOut(alu_result), .mult_start(mult_start),
-        .busy(mult_busy), .mult_done(mult_done)
+        .clk(clk),
+        .reset(reset),
+        .mult_start(mult_start),
+        .dataA(alu_dataA),
+        .dataB(alu_dataB),
+        .Signal(ex_signal),
+        .dataOut(alu_result),
+        .busy(mult_busy),
+        .mult_done(mult_done),
+        .HiOut(w_hi_out),
+        .LoOut(w_lo_out),
+        .ALUOut_raw(raw_alu_out)
     );
 
-    assign zero = (alu_result == 32'd0);
+    assign zero = (raw_alu_out == 32'd0);
     assign is_multu = (ex_signal == 6'd25) & ~PCSrc;
 
     MultStall mult_stall_inst(
