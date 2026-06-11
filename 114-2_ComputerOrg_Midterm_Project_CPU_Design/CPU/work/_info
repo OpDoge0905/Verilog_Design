@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/intelFPGA/17.1
 vALU
-Z0 !s110 1781163207
+Z0 !s110 1781196040
 !i10b 1
 !s100 WcSZO7<;>?_CZ]kXRkjA03
 In0Oe?=J0`Fm[Hk12DHK=h2
@@ -23,7 +23,7 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1781163207.000000
+Z5 !s108 1781196040.000000
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ALU.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ALU.v|
 !i113 1
@@ -103,7 +103,7 @@ R0
 IMH0TaEZhVeKnd350PN<R31
 R1
 R2
-w1780805877
+Z8 w1781183513
 8C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/DataMemory.v
 FC:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/DataMemory.v
 L0 2
@@ -119,7 +119,7 @@ R6
 R7
 n@data@memory
 vEX_MEM_Register
-R0
+Z9 !s110 1781196041
 !i10b 1
 !s100 o;`KbHzT1SEdmPV@Y[CaW3
 IBc4b<fXHzYB5W<k4z^E2T2
@@ -141,7 +141,7 @@ R6
 R7
 n@e@x_@m@e@m_@register
 vForwardingUnit
-Z8 !s110 1781163208
+R9
 !i10b 1
 !s100 IVEh[PM0kQXh5QBgh7Qe>2
 IZUQFV5D5lW[N<h9<7OBJa2
@@ -155,7 +155,7 @@ R4
 r1
 !s85 0
 31
-Z9 !s108 1781163208.000000
+Z10 !s108 1781196041.000000
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ForwardingUnit.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ForwardingUnit.v|
 !i113 1
@@ -163,7 +163,7 @@ R6
 R7
 n@forwarding@unit
 vFullAdder
-R8
+R9
 !i10b 1
 !s100 9NWPDRPK56k42Zjn159_k0
 IN:4DWHEDefJJMV_l:9k:?1
@@ -177,7 +177,7 @@ R4
 r1
 !s85 0
 31
-R9
+R10
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/FullAdder.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/FullAdder.v|
 !i113 1
@@ -185,13 +185,13 @@ R6
 R7
 n@full@adder
 vHazardDetectionUnit
-R8
+R9
 !i10b 1
-!s100 Rn0]g>UZ>>IijK4o6zK_`3
-I_QeUfTNmME_8IHNXaFR071
+!s100 ?G63b6@MMzk`GS48Lmd:F0
+I4BmSbi4[[H[U3XbRfW;C50
 R1
 R2
-w1780805473
+w1781195680
 8C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/HazardDetectionUnit.v
 FC:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/HazardDetectionUnit.v
 L0 2
@@ -199,7 +199,7 @@ R4
 r1
 !s85 0
 31
-R9
+R10
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/HazardDetectionUnit.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/HazardDetectionUnit.v|
 !i113 1
@@ -207,13 +207,13 @@ R6
 R7
 n@hazard@detection@unit
 vHiLo
-R8
+R9
 !i10b 1
-!s100 n@`Y[VkaFd4bK=jNkd@d@2
-IcTGemj>i4GlLk49mj48Lf2
+!s100 9HkVGQEm6gX^eJ2[b>f1J3
+IcUAmE5928S5<m3FeeYF5`0
 R1
 R2
-R3
+R8
 8C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/HiLo.v
 FC:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/HiLo.v
 L0 2
@@ -221,7 +221,7 @@ R4
 r1
 !s85 0
 31
-R9
+R10
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/HiLo.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/HiLo.v|
 !i113 1
@@ -229,7 +229,7 @@ R6
 R7
 n@hi@lo
 vID_EX_Register
-R8
+R9
 !i10b 1
 !s100 0RZ:i[QCjHhfUiH]DzmOB0
 IZ1j^JMLY99lQLN8CfHXi;1
@@ -243,7 +243,7 @@ R4
 r1
 !s85 0
 31
-R9
+R10
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ID_EX_Register.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ID_EX_Register.v|
 !i113 1
@@ -251,7 +251,7 @@ R6
 R7
 n@i@d_@e@x_@register
 vIF_ID_Register
-R8
+R9
 !i10b 1
 !s100 OB0=UREK?3gghPPPcXb143
 Im;UZ2;d9:F=M>JK7OmcOC2
@@ -265,7 +265,7 @@ R4
 r1
 !s85 0
 31
-R9
+R10
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/IF_ID_Register.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/IF_ID_Register.v|
 !i113 1
@@ -273,7 +273,7 @@ R6
 R7
 n@i@f_@i@d_@register
 vInstructionMemory
-R8
+R9
 !i10b 1
 !s100 m1GMSKVl2F4z2i>foJ:Wd0
 IU`G1iJ9I5Z0InU0P7:=G41
@@ -287,7 +287,7 @@ R4
 r1
 !s85 0
 31
-R9
+R10
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/InstructionMemory.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/InstructionMemory.v|
 !i113 1
@@ -295,7 +295,7 @@ R6
 R7
 n@instruction@memory
 vMEM_WB_Register
-R8
+R9
 !i10b 1
 !s100 ZN>Z38^G@E@>HzZNhU]Nh2
 ILbG3eOK=4Q`f3QIomb4FT2
@@ -309,7 +309,7 @@ R4
 r1
 !s85 0
 31
-R9
+R10
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/MEM_WB_Register.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/MEM_WB_Register.v|
 !i113 1
@@ -317,13 +317,13 @@ R6
 R7
 n@m@e@m_@w@b_@register
 vMultiplier
-Z10 !s110 1781163209
+Z11 !s110 1781196042
 !i10b 1
-!s100 e[<oP3QmW]kz=SKUTg]^80
-IDj:=V3;VeYD=b]@z2EY@?0
+!s100 ?0_ccGDe;2MHY1kGGC?hS2
+IYh>;Q1mz4hfLDlFC]i_b72
 R1
 R2
-R3
+R8
 8C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Multiplier.v
 FC:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Multiplier.v
 L0 2
@@ -331,7 +331,7 @@ R4
 r1
 !s85 0
 31
-R9
+R10
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Multiplier.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Multiplier.v|
 !i113 1
@@ -339,13 +339,13 @@ R6
 R7
 n@multiplier
 vMultStall
-R10
+R11
 !i10b 1
-!s100 LIGf;Og69n[SNUgN0QC_o1
-I6EK_R_<hGFKWlLd[`PMGa3
+!s100 Nci^aO`inWz7niVzjUa`^1
+IH`HlTATkBnBJdl@3=:eiP3
 R1
 R2
-w1780805460
+w1781196034
 8C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/MultStall.v
 FC:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/MultStall.v
 L0 2
@@ -353,7 +353,7 @@ R4
 r1
 !s85 0
 31
-Z11 !s108 1781163209.000000
+Z12 !s108 1781196042.000000
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/MultStall.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/MultStall.v|
 !i113 1
@@ -361,7 +361,7 @@ R6
 R7
 n@mult@stall
 vMUX
-R10
+R11
 !i10b 1
 !s100 fHjRO5gZOkQSah1Y0E=L^3
 IUVgT`@eW:3X;:?hfYICXG3
@@ -375,7 +375,7 @@ R4
 r1
 !s85 0
 31
-R11
+R12
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/MUX.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/MUX.v|
 !i113 1
@@ -383,7 +383,7 @@ R6
 R7
 n@m@u@x
 vPC
-R10
+R11
 !i10b 1
 !s100 Lz_fD5V^j0b3bX^BF?ePZ2
 IlS`i`7ToKPe;D]AZg29Q@1
@@ -397,7 +397,7 @@ R4
 r1
 !s85 0
 31
-R11
+R12
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PC.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PC.v|
 !i113 1
@@ -405,7 +405,7 @@ R6
 R7
 n@p@c
 vPC_Adder
-R10
+R11
 !i10b 1
 !s100 2KYL63;k9fkY`ZZkCnPW?3
 IRMbVT_D?gh6@QVHJWmIB41
@@ -419,7 +419,7 @@ R4
 r1
 !s85 0
 31
-R11
+R12
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PC_Adder.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PC_Adder.v|
 !i113 1
@@ -427,13 +427,13 @@ R6
 R7
 n@p@c_@adder
 vPipelinedCPU
-R10
+R11
 !i10b 1
-!s100 d4^?59?CLQl0OUfkZhBae3
-I]RU2YO^?Do;<kLzLnHHA;0
+!s100 9@=W6hQ2e]3o2c;gfX;=X2
+ImjAoA0S7^oOImeRfNCIi@1
 R1
 R2
-w1780805499
+R8
 8C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PipelinedCPU.v
 FC:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PipelinedCPU.v
 L0 2
@@ -441,7 +441,7 @@ R4
 r1
 !s85 0
 31
-R11
+R12
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PipelinedCPU.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PipelinedCPU.v|
 !i113 1
@@ -449,7 +449,7 @@ R6
 R7
 n@pipelined@c@p@u
 vRegisters
-R10
+R11
 !i10b 1
 !s100 ^Z`gD`ln[C;Pgb1?`6EeT1
 I?:>gMK=]la7O]>Ub5]Z`N0
@@ -463,7 +463,7 @@ R4
 r1
 !s85 0
 31
-R11
+R12
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Register.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Register.v|
 !i113 1
@@ -471,7 +471,7 @@ R6
 R7
 n@registers
 vShifter
-R10
+R11
 !i10b 1
 !s100 K=Pe_5;c10]b?_=Z=b`7`3
 IJ_fMOO@=CnEn4O@81B29F0
@@ -485,7 +485,7 @@ R4
 r1
 !s85 0
 31
-R11
+R12
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Shifter.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Shifter.v|
 !i113 1
@@ -493,7 +493,7 @@ R6
 R7
 n@shifter
 vSignExtend
-R10
+R11
 !i10b 1
 !s100 az0[H44SlWafI00DL<fFf1
 IflM:HOH9A4eOU`hfgC`e]0
@@ -507,7 +507,7 @@ R4
 r1
 !s85 0
 31
-R11
+R12
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/SignExtend.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/SignExtend.v|
 !i113 1
@@ -515,13 +515,13 @@ R6
 R7
 n@sign@extend
 vTestbench
-Z12 !s110 1781163210
+Z13 !s110 1781196043
 !i10b 1
-!s100 YE8aM`2<EMQf@^:^085nE2
-IA=7Z3IYTn8b=dZmI[:0QY3
+!s100 YLKHlLOZBPa=6^O>U>cbH1
+I`D<zEj1XCAbO3oP6>SGWe2
 R1
 R2
-w1781163198
+R8
 8C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Testbench.v
 FC:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Testbench.v
 L0 2
@@ -529,7 +529,7 @@ R4
 r1
 !s85 0
 31
-R11
+R12
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Testbench.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Testbench.v|
 !i113 1
@@ -537,13 +537,13 @@ R6
 R7
 n@testbench
 vTotalALU
-R12
+R13
 !i10b 1
-!s100 [NCLzDmzhe02_ckh75i9[1
-I^eT9JX2UCR0^=OiQG=n4d3
+!s100 >F00CYT142H5HYkNn;EZO2
+I;Y4?FS6b[6f]zmAhaVK>23
 R1
 R2
-R3
+R8
 8C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/TotalALU.v
 FC:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/TotalALU.v
 L0 2
@@ -551,7 +551,7 @@ R4
 r1
 !s85 0
 31
-!s108 1781163210.000000
+!s108 1781196043.000000
 !s107 C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/TotalALU.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/TotalALU.v|
 !i113 1

@@ -21,7 +21,7 @@ module HazardDetectionUnit(
     input [4:0] id_ex_write_reg;
     input EX_MEM_MemRead;
     input [4:0] ex_mem_write_reg;
-    
+
     output PCWrite;
     output IF_ID_Write;
     output IF_ID_Flush;
@@ -31,20 +31,23 @@ module HazardDetectionUnit(
 
     wire lw_stall;
     wire jr_stall;
+    wire ex_mem_regwrite;
+    wire mem_wb_regwrite;
 
     assign lw_stall = ID_EX_MemRead & (
         (IF_ID_UsesRs & (ID_EX_rt == IF_ID_rs)) |
         (IF_ID_UsesRt & (ID_EX_rt == IF_ID_rt))
     );
-    
+
     assign jr_stall = jr_id & (
         (ID_EX_RegWrite & (id_ex_write_reg != 5'd0) & (id_ex_write_reg == IF_ID_rs)) |
+        (ex_mem_regwrite & (ex_mem_write_reg != 5'd0) & (ex_mem_write_reg == IF_ID_rs)) |
         (EX_MEM_MemRead & (ex_mem_write_reg != 5'd0) & (ex_mem_write_reg == IF_ID_rs))
     );
-    
+
     assign PCWrite = PCSrc | ~(lw_stall | mult_stall | jr_stall);
     assign IF_ID_Write = ~(lw_stall | mult_stall | jr_stall);
-    
+
     assign IF_ID_Flush = PCSrc | jump_id | (jr_id & ~jr_stall);
     assign ID_EX_Flush = PCSrc | jump_id | (jr_id & ~jr_stall) | lw_stall | jr_stall;
     assign EX_MEM_Flush = PCSrc;
