@@ -47,13 +47,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	EX_MEM_Register
 
-} {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Testbench.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Testbench.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module Testbench
-
-Top level modules:
-	Testbench
-
 } {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/SignExtend.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/SignExtend.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module SignExtend
@@ -67,6 +60,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	ALU_1bit
+
+} {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PC_Adder.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PC_Adder.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module PC_Adder
+
+Top level modules:
+	PC_Adder
 
 } {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PipelinedCPU.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PipelinedCPU.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -82,12 +82,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	MultStall
 
-} {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PC_Adder.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PC_Adder.v
+} {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ALUControl.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ALUControl.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module PC_Adder
+-- Compiling module ALUControl
 
 Top level modules:
-	PC_Adder
+	ALUControl
 
 } {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PC.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/PC.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -96,19 +96,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	PC
 
-} {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ALUControl.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ALUControl.v
+} {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/DataMemory.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/DataMemory.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module ALUControl
+-- Compiling module DataMemory
 
 Top level modules:
-	ALUControl
+	DataMemory
 
-} {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Shifter.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Shifter.v
+} {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/InstructionMemory.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/InstructionMemory.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module Shifter
+-- Compiling module InstructionMemory
 
 Top level modules:
-	Shifter
+	InstructionMemory
 
 } {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ID_EX_Register.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ID_EX_Register.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -116,6 +116,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	ID_EX_Register
+
+} {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Shifter.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Shifter.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module Shifter
+
+Top level modules:
+	Shifter
 
 } {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/TotalALU.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/TotalALU.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -131,13 +138,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	IF_ID_Register
 
-} {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/HazardDetectionUnit.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/HazardDetectionUnit.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module HazardDetectionUnit
-
-Top level modules:
-	HazardDetectionUnit
-
 } {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Control.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/Control.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module Control
@@ -145,12 +145,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Control
 
-} {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/MUX.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/MUX.v
+} {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/HazardDetectionUnit.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/HazardDetectionUnit.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module MUX
+-- Compiling module HazardDetectionUnit
 
 Top level modules:
-	MUX
+	HazardDetectionUnit
 
 } {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ALU.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/ALU.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -158,5 +158,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	ALU
+
+} {} {}} C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/MUX.v {1 {vlog -work work -stats=none C:/Users/opdog/Documents/GitHub/Verilog_Design/114-2_ComputerOrg_Midterm_Project_CPU_Design/MUX.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module MUX
+
+Top level modules:
+	MUX
 
 } {} {}}
