@@ -4,15 +4,21 @@ module PipelinedCPU(clk, reset);
     input reset;
 
     wire [31:0] pc_out, pc_next, pc_plus_4, inst;
-    
+
     wire [31:0] if_id_pc_plus_4, if_id_inst;
     wire [4:0] rs, rt, rd;
     wire [31:0] read_data1, read_data2, sign_ext;
     wire RegDst, ALUSrc, MemToReg, RegWrite, MemRead, MemWrite, Branch, Jump, Multu, Mfhi, Mflo, Jr;
     wire [2:0] ALUOp;
-    
+    wire if_id_r_type, if_id_add, if_id_sub, if_id_and, if_id_or, if_id_srl, if_id_slt;
+    wire if_id_lw, if_id_sw, if_id_beq, if_id_slti, if_id_multu, if_id_jr;
+    wire IF_ID_UsesRs, IF_ID_UsesRt;
+
     wire PCWrite, IF_ID_Write, IF_ID_Flush, ID_EX_Flush, EX_MEM_Flush, stall_id_ex;
     wire mult_stall;
+    wire mult_busy;
+    wire mult_start;
+    wire mult_done;
     wire PCSrc;
     wire [31:0] jump_target, jr_target, ex_mem_branch_target;
     wire ex_mem_zero;
@@ -43,7 +49,7 @@ module PipelinedCPU(clk, reset);
     wire [31:0] wb_data;
 
     assign jump_target = {if_id_pc_plus_4[31:28], if_id_inst[25:0], 2'b00};
-    
+
     assign jr_target = (ex_mem_wb[1] && (ex_mem_write_reg != 5'd0) && (ex_mem_write_reg == rs)) ? ex_mem_alu_result :
                        (mem_wb_wb[1] && (mem_wb_write_reg != 5'd0) && (mem_wb_write_reg == rs)) ? wb_data :
                        read_data1;
@@ -67,6 +73,25 @@ module PipelinedCPU(clk, reset);
     assign rt = if_id_inst[20:16];
     assign rd = if_id_inst[15:11];
 
+    assign if_id_r_type = (if_id_inst[31:26] == 6'd0);
+    assign if_id_add   = if_id_r_type & (if_id_inst[5:0] == 6'd32);
+    assign if_id_sub   = if_id_r_type & (if_id_inst[5:0] == 6'd34);
+    assign if_id_and   = if_id_r_type & (if_id_inst[5:0] == 6'd36);
+    assign if_id_or    = if_id_r_type & (if_id_inst[5:0] == 6'd37);
+    assign if_id_srl   = if_id_r_type & (if_id_inst[5:0] == 6'd2);
+    assign if_id_slt   = if_id_r_type & (if_id_inst[5:0] == 6'd42);
+    assign if_id_multu = if_id_r_type & (if_id_inst[5:0] == 6'd25);
+    assign if_id_jr    = if_id_r_type & (if_id_inst[5:0] == 6'd8);
+    assign if_id_lw    = (if_id_inst[31:26] == 6'h23);
+    assign if_id_sw    = (if_id_inst[31:26] == 6'h2B);
+    assign if_id_beq   = (if_id_inst[31:26] == 6'h04);
+    assign if_id_slti  = (if_id_inst[31:26] == 6'h0A);
+
+    assign IF_ID_UsesRs = if_id_add | if_id_sub | if_id_and | if_id_or | if_id_slt |
+                          if_id_multu | if_id_jr | if_id_lw | if_id_sw | if_id_beq | if_id_slti;
+    assign IF_ID_UsesRt = if_id_add | if_id_sub | if_id_and | if_id_or | if_id_srl |
+                          if_id_slt | if_id_multu | if_id_sw | if_id_beq;
+
     Control ctrl_inst(
         .opcode(if_id_inst[31:26]), .funct(if_id_inst[5:0]),
         .RegDst(RegDst), .ALUSrc(ALUSrc), .MemToReg(MemToReg), .RegWrite(RegWrite),
@@ -86,6 +111,7 @@ module PipelinedCPU(clk, reset);
 
     HazardDetectionUnit hazard_inst(
         .ID_EX_MemRead(id_ex_m[1]), .ID_EX_rt(id_ex_rt), .IF_ID_rs(rs), .IF_ID_rt(rt),
+        .IF_ID_UsesRs(IF_ID_UsesRs), .IF_ID_UsesRt(IF_ID_UsesRt),
         .PCSrc(PCSrc), .jump_id(Jump), .jr_id(Jr), .mult_stall(mult_stall),
         .ID_EX_RegWrite(id_ex_wb[1]), .id_ex_write_reg(write_reg),
         .EX_MEM_MemRead(ex_mem_m[1]), .ex_mem_write_reg(ex_mem_write_reg),
@@ -120,13 +146,17 @@ module PipelinedCPU(clk, reset);
 
     TotalALU total_alu_inst(
         .clk(clk), .reset(reset), .dataA(alu_dataA), .dataB(alu_dataB),
-        .Signal(ex_signal), .dataOut(alu_result)
+        .Signal(ex_signal), .dataOut(alu_result), .mult_start(mult_start),
+        .busy(mult_busy), .mult_done(mult_done)
     );
 
     assign zero = (alu_result == 32'd0);
-    assign is_multu = (ex_signal == 6'd25);
+    assign is_multu = (ex_signal == 6'd25) & ~PCSrc;
 
-    MultStall mult_stall_inst(.clk(clk), .reset(reset), .is_multu(is_multu), .stall(mult_stall));
+    MultStall mult_stall_inst(
+        .clk(clk), .reset(reset), .is_multu(is_multu), .busy(mult_busy),
+        .start(mult_start), .stall(mult_stall)
+    );
 
     assign branch_target = id_ex_pc_plus_4 + (id_ex_sign_ext << 2);
 

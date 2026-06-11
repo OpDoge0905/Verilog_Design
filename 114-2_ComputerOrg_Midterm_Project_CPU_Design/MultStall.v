@@ -1,25 +1,24 @@
 `timescale 1ns/1ns
-module MultStall(clk, reset, is_multu, stall);
+module MultStall(clk, reset, is_multu, busy, start, stall);
     input clk;
     input reset;
     input is_multu;
+    input busy;
+    output start;
     output stall;
 
-    reg [5:0] count;
+    reg waiting;
+
+    assign start = is_multu & ~waiting & ~busy;
+    assign stall = start | busy;
 
     always @(posedge clk or posedge reset) begin
         if (reset) begin
-            count <= 6'd0;
-        end else begin
-            if (count > 6'd0 && count < 6'd32) begin
-                count <= count + 6'd1;
-            end else if (count == 6'd32) begin
-                count <= 6'd0;
-            end else if (is_multu && count == 6'd0) begin
-                count <= 6'd1;
-            end
+            waiting <= 1'b0;
+        end else if (start) begin
+            waiting <= 1'b1;
+        end else if (waiting & ~busy) begin
+            waiting <= 1'b0;
         end
     end
-
-    assign stall = (is_multu && count == 6'd0) || (count > 6'd0 && count < 6'd32);
 endmodule

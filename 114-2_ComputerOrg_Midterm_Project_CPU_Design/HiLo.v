@@ -1,6 +1,7 @@
 `timescale 1ns/1ns
-module HiLo( clk, reset, dataIn, HiOut, LoOut );
+module HiLo( clk, reset, write, dataIn, HiOut, LoOut );
     input clk, reset;
+    input write;
     input [63:0] dataIn; 
     output [31:0] HiOut, LoOut;
 
@@ -10,7 +11,7 @@ module HiLo( clk, reset, dataIn, HiOut, LoOut );
         if ( reset ) begin
             temp_reg <= 64'b0;
         end
-        else begin
+        else if ( write ) begin
             temp_reg <= dataIn;
         end
     end
