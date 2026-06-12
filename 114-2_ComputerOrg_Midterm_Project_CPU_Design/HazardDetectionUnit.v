@@ -49,7 +49,7 @@ module HazardDetectionUnit(
     assign IF_ID_Write = ~(lw_stall | mult_stall | jr_stall);
 
     assign IF_ID_Flush = PCSrc | jump_id | (jr_id & ~jr_stall);
-    assign ID_EX_Flush = PCSrc | jump_id | (jr_id & ~jr_stall) | lw_stall | jr_stall;
+    assign ID_EX_Flush = PCSrc | lw_stall | jr_stall | (jr_id & ~jr_stall);
     assign EX_MEM_Flush = PCSrc;
     assign stall_id_ex = mult_stall;
 endmodule

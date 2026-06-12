@@ -7,18 +7,18 @@ module MultStall(clk, reset, is_multu, busy, start, stall);
     output start;
     output stall;
 
-    reg waiting;
+    reg started;
 
-    assign start = is_multu & ~waiting & ~busy;
-    assign stall = start | busy;
+    assign start = (~reset) & is_multu & ~started & ~busy;
+    assign stall = (~reset) & (busy | (is_multu & ~started & ~busy));
 
     always @(posedge clk or posedge reset) begin
         if (reset) begin
-            waiting <= 1'b0;
+            started <= 1'b0;
         end else if (start) begin
-            waiting <= 1'b1;
-        end else if (waiting & ~busy) begin
-            waiting <= 1'b0;
+            started <= 1'b1;
+        end else if (started & ~busy) begin
+            started <= 1'b0;
         end
     end
 endmodule
